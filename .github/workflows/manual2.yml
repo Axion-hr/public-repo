@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Show version
       run: |
-        echo "Version to deploy: ${{github.event.inputs.version}} "
+         echo "Version to deploy: neka tamo"
 
     - name: Get approval   
       uses: trstringer/manual-approval@v1
