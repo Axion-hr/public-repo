@@ -1,0 +1,28 @@
+# This is a basic workflow that is manually triggered
+
+name: Deploy to test 
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Service version to deploy'        
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Show version
+      run: echo "Version to deploy: ${{github.event.inputs.version}} "
+
+    - name: Get approval   
+      uses: trstringer/manual-approval@v1
+      with:
+        secret: ${{ github.TOKEN }}
+        approvers: vmikac-axion
+          
+    - name: Deploy to production
+      run: echo "Super cool deployment"
+ #   - name: AWS SSM Send-Command
