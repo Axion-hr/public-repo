@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Deploy to test 
+name: Alternate version of manual deployment
 
 on:
   workflow_dispatch:
