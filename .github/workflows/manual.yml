@@ -17,20 +17,18 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   setversion:
-    # The type of runner that the job will run on
+    name: Set version to deploy
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
     - name: Check version that will be deployed
       run: echo "Hello ${{ github.event.inputs.version }}"
       
     # Runs a single command using the runners shell
   deploy:
-  needs: setversion
-  environment:
-      name: staging
-      url: ${{ steps.deploy_staging.outputs.webapp-url }}    
+    needs: setversion
+    runs-on: ubuntu-latest
+    name: Deploy to test stage
+    environment: test
+    steps:
     - name: Run command that needs to be approved
       run: echo "Hi! this is sensitive commant that needs approval"
