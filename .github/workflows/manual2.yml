@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Show version
-      run: |
-         echo "Version to deploy: neka tamo"
+      run: echo "Show version to deploy"
 
     - name: Get approval   
       uses: trstringer/manual-approval@v1
